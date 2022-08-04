@@ -1,6 +1,6 @@
 import React from 'react'
-import { Link } from "react-router-dom";
-import { Space, Table, Tag , Row, Col, Card } from 'antd';
+import { Link } from 'react-router-dom'
+import { Space, Table, Tag , Row, Col, Card } from 'antd'
 
 const columns = [
   {
@@ -24,19 +24,19 @@ const columns = [
     key: 'tags',
     dataIndex: 'tags',
     render: (_, { tags }) => (
-      <>
+      <div>
         {tags.map(tag => {
-          let color = tag.length > 5 ? 'geekblue' : 'green';
+          let color = tag.length > 5 ? 'geekblue' : 'green'
           if (tag === 'loser') {
-            color = 'volcano';
+            color = 'volcano'
           }
           return (
             <Tag color={color} key={tag}>
               {tag.toUpperCase()}
             </Tag>
-          );
+          )
         })}
-      </>
+      </div>
     ),
   },
   {
@@ -49,7 +49,7 @@ const columns = [
       </Space>
     ),
   },
-];
+]
 
 const data = [
   {
@@ -73,27 +73,27 @@ const data = [
     address: 'Sidney No. 1 Lake Park',
     tags: ['cool', 'teacher'],
   },
-];
+]
 
 const PersonList = () => {
   return (
-  <div>
-    <Table columns={columns} dataSource={data} />
     <div>
-      <Row>
-        <Col>
-          <div className="site-card-border-less-wrapper">
-            <Card title="Agenda" bordered={false} >
-              <p>
-                Create responsive layout<br/>
-                <Link to="https://ant.design/components/grid/">Ant design grid component</Link>
-              </p>
-            </Card>
-          </div>
-        </Col>
+      <Table columns={columns} dataSource={data} />
+      <div>
+        <Row>
+          <Col>
+            <div className="site-card-border-less-wrapper">
+              <Card title="Agenda" bordered={false} >
+                <p>
+                  Create responsive layout<br/>
+                  <Link to="https://ant.design/components/grid/">Ant design grid component</Link>
+                </p>
+              </Card>
+            </div>
+          </Col>
         </Row>
       </div>
-  </div>)
-}
+    </div>
+)}
 
 export default PersonList
