@@ -1,4 +1,5 @@
 import App from "./pages/App";
+import {PetList} from "./pages/pet/index"
 import {
     BrowserRouter,
     Routes,
@@ -10,6 +11,7 @@ const router = () =>{
     <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />} />
+          <Route path="pet" element={<PetList />} />
         </Routes>
       </BrowserRouter>
       )
