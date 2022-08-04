@@ -1,7 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
 
-function App() {
+import logo from './logo.svg'
+import './App.css'
+
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -21,9 +23,17 @@ function App() {
         >
           Go to pet list (blank space)
         </a>
+        <a
+          className="App-link"
+          href="./calculator"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Calculator
+        </a>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
