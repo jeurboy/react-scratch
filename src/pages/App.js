@@ -8,11 +8,18 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <a
           className="App-link"
+          href="./agenda"
+          target="_blank"
+        >
+          Tutorial agenda
+        </a>
+        <a
+          className="App-link"
           href="./pet"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Go to pet list
+          Go to pet list (blank space)
         </a>
       </header>
     </div>
