@@ -2,6 +2,11 @@ import React, { useState } from 'react'
 import { Row, Col, Button, Input } from 'antd'
 import PropTypes from 'prop-types'
 import { indexOf } from 'lodash'
+import numeral from 'numeral'
+
+let result = 0
+let number = 0
+let operand = '+'
 
 const Calculator = () => {
   const [screen, setScreen] = useState('')
@@ -10,6 +15,7 @@ const Calculator = () => {
     container : {
       border: '1px solid #B4AAA9',
       backgroundColor: '#F0C9B3',
+      boxShadow: '5px 5px 5px #B4AAA9',
       margin: 20,
       padding: 16,
       width: 500,
@@ -25,27 +31,46 @@ const Calculator = () => {
     },
   }
 
-  let result = 0
   const handleOnClick = (button) => {
-    // eslint-disable-next-line no-console
-    console.log(button, result)
-
     if (indexOf(['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'], button) >= 0 ){
       setScreen(screen+button)
+
+      number = numeral(`${screen}${button}`).value()
     }
     
-    if (indexOf(['+', '-', 'x', '%'], button) >= 0 ){
+    if (indexOf(['+', '-'], button) >= 0 ){
+      operand = button
+      calc(button)
       setScreen(button)
     }
     
     if (indexOf(['='], button) >= 0 ){
+      calc(operand)
+
       setScreen(result)
     }
 
     if (indexOf(['C'], button) >= 0 ){
       setScreen('')
+
       result = 0
+      operand = ''
+      number = 0
     }
+    
+    // eslint-disable-next-line no-console
+    console.log('operand, result, number', operand, result, number)
+  }
+
+  const calc = (button) => {
+    switch (button) {
+      case '+' : result += number; break
+      case '-' : result += number; break
+      default: ;
+    }
+    
+    operand = '+'
+    number = 0
   }
 
   return (
